@@ -1,0 +1,96 @@
+<!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
+<!--  Last Published: Thu May 25 2023 19:31:51 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="646e8c0735c0d4297b91fc78" data-wf-site="646e5bd3e52f0b4459ad7d8e">
+<head>
+  <meta charset="utf-8">
+  <title>Calculator Results</title>
+  <meta content="Calculator Results" property="og:title">
+  <meta content="Calculator Results" property="twitter:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/looking-glass-af7a6c.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Droid Serif:400,400italic,700,700italic"]  }});</script>
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+</head>
+<body>
+  <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navigation w-nav">
+    <div class="navigation-wrap">
+      <a href="#" class="logo-link w-nav-brand"><img width="108" sizes="(max-width: 479px) 45vw, 108px" src="images/Virta-Logo---Horizontal-Blue.jpg" srcset="images/Virta-Logo---Horizontal-Blue-p-500.jpg 500w, images/Virta-Logo---Horizontal-Blue-p-800.jpg 800w, images/Virta-Logo---Horizontal-Blue-p-1080.jpg 1080w, images/Virta-Logo---Horizontal-Blue.jpg 1501w" alt="" class="logo-image"></a>
+      <a href="mailto:mail@business.com?subject=You&#x27;ve%20got%20mail!" class="button cc-contact-us w-inline-block">
+        <div>Contact us</div>
+      </a>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <h1 class="heading">{First Name}’s Virta Prediction</h1>
+      <p>Virta is proven to reduce blood sugar, weight, A1c, and diabetes medications. Using your information, we’ve estimated your expected results after 90 days on Virta.</p>
+    </div>
+  </div>
+  <section class="section-2 wf-section">
+    <div id="hba1c-prediction" class="w-container">
+      <h2 class="heading-2">A1c</h2>
+      <h3 class="heading-3">From {hba1c}% to {potential-hba1c}%</h3>
+      <div>On average, Virta members with a similar A1c experienced a [a1c_reduction]% decrease after 90 days. On Virta, your A1c could be reduced from {hba1c}% to {potential-hba1c}% in just 90 days.<br>{below-threshold}</div>
+    </div>
+    <div id="weight-prediction" class="w-container">
+      <h2 class="heading-2">Weight</h2>
+      <h3 class="heading-3">From {weight} to {potential-weight}</h3>
+      <div>On average, Virta members with a similar BMI experienced a {weight_reduction_perc}% decrease in weight after 90 days. On Virta, you could lose {weight_reduction} lbs, resulting in a new weight of {potentialWeight} lbs after just 90 days.</div>
+    </div>
+    <div id="med-reductions" class="w-container">
+      <h2 class="heading-2">Medication Reductions</h2>
+      <div>On average, Virta patients experienced significant reductions in diabetes medications after just 90 days. Below are individual stats for medications you&#x27;ve said you&#x27;re taking.</div>
+      <div id="insulin-reduction" class="med-reduction">
+        <h3 class="heading-3">Insulin</h3>
+        <div>91.5% of Virta members reduce or eliminate their Insulin after 90 days.</div>
+      </div>
+      <div id="glp1-reduction" class="med-reduction">
+        <h3 class="heading-3">GLP-1</h3>
+        <div>13.5% of Virta members reduce or eliminate their GLP-1 after 90 days.</div>
+      </div>
+      <div id="sglt2-reduction" class="med-reduction">
+        <h3 class="heading-3">SGLT2</h3>
+        <div>78.7% of Virta members reduce or eliminate their SGLT2 after 90 days.</div>
+      </div>
+      <div id="sulfonylurea-reduction" class="med-reduction">
+        <h3 class="heading-3">Sulfonylurea</h3>
+        <div>92.6% of Virta members reduce or eliminate their Sulfonylurea after 90 days.</div>
+      </div>
+      <div id="dpp4-reduction" class="med-reduction">
+        <h3 class="heading-3">DPP4</h3>
+        <div>23.3% of Virta members reduce or eliminate their DPP4 after 90 days.</div>
+      </div>
+      <div id="tzd-reduction" class="med-reduction">
+        <h3 class="heading-3">TZD</h3>
+        <div>20.9% of Virta members reduce or eliminate their TZD after 90 days.</div>
+      </div>
+    </div>
+    <div id="cost-savings" class="w-container">
+      <h2 class="heading-2">Cost Savings</h2>
+      <h3 class="heading-3">{cost-savings}*</h3>
+      <div>*Assuming typical medication pricing and cost sharing, a Virta member on similar medications could save ${cost_savings} annually on out-of-pocket costs associated with these medications.</div>
+    </div>
+  </section>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=646e5bd3e52f0b4459ad7d8e" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script>
+// Entering the localStorage value in each input
+$('#firstName').val(localStorage.getItem('first-name'));
+$('#emailAddress').val(localStorage.getItem('email-address'));
+$('#lastName').val(localStorage.getItem('last-name'));
+$('#weight').val(localStorage.getItem('weight'));
+$('#feet').val(localStorage.getItem('height-feet'));
+$('#inches').val(localStorage.getItem('height-inches'));
+$('#hba1c').val(localStorage.getItem('hba1c'));
+$('#employer').val(localStorage.getItem('employer'));
+</script>
+</body>
+</html>
