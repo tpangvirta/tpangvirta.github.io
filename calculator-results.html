@@ -287,6 +287,48 @@
         return costSavings;
       };
 
+      const hideMedicationDivs = (
+        includeInsulin,
+        includeSulfonylurea,
+        includeGlp1,
+        includeSglt2,
+        includeDpp4,
+        includeTzd,
+        includeNone
+      ) => {
+        let section;
+        if (includeNone) {
+          // Hide entire medications section
+          section = $("#med-reductions");
+          section.hide();
+          return;
+        }
+        if (!includeInsulin) {
+          section = $("#insulin-reduction");
+          section.hide();
+        }
+        if (!includeSulfonylurea) {
+          section = $("#sulfonylurea-reduction");
+          section.hide();
+        }
+        if (!includeGlp1) {
+          section = $("#glp1-reduction");
+          section.hide();
+        }
+        if (!includeSglt2) {
+          section = $("#sglt2-reduction");
+          section.hide();
+        }
+        if (!includeDpp4) {
+          section = $("#dpp4-reduction");
+          section.hide();
+        }
+        if (!includeTzd) {
+          section = $("#tzd-reduction");
+          section.hide();
+        }
+      };
+
       // Entering the localStorage value in each input
       const firstName = localStorage.getItem("first-name");
       const emailAddress = $("#emailAddress").val(
@@ -315,6 +357,10 @@
       const belowThreshold = "";
       const costSavings = calculateCostSavings(...checkboxVals);
 
+      // Show/Hide medication sections based on checkbox values
+      hideMedicationDivs(...checkboxVals);
+
+      // Replacing tags with their dynamic values from the forms/calculations
       replaceTagWithText("#prediction-heading", "{first_name}", firstName);
       replaceTagWithText("#hba1c-prediction", "{hba1c}", hba1c);
       replaceTagWithText(
