@@ -343,6 +343,26 @@
           let inches = $("#height-inches").val();
           let hba1c = $("#hba1c").val();
           let employer = $("#employer").val();
+          const checkBoxInsulin = $("#checkbox-insulin").is(":checked");
+          const checkBoxSulfonylureas = $("#checkbox-sulfonylureas").is(
+            ":checked"
+          );
+          const checkBoxGlp1 = $("#checkbox-glp1").is(":checked");
+          const checkBoxSglt2 = $("#checkbox-sglt2").is(":checked");
+          const checkBoxDpp4 = $("#checkbox-dpp4").is(":checked");
+          const checkBoxTzd = $("#checkbox-tzd").is(":checked");
+          const checkBoxNone = $("#checkbox-none").is(":checked");
+
+          const checkboxVals = [
+            checkBoxInsulin,
+            checkBoxSulfonylureas,
+            checkBoxGlp1,
+            checkBoxSglt2,
+            checkBoxDpp4,
+            checkBoxTzd,
+            checkBoxNone,
+          ];
+
           // Storing the values in localStorage
           localStorage.setItem("first-name", firstName);
           localStorage.setItem("email-address", emailAddress);
@@ -352,6 +372,7 @@
           localStorage.setItem("height-inches", inches);
           localStorage.setItem("hba1c", hba1c);
           localStorage.setItem("employer", employer);
+          localStorage.setItem("checkboxVals", checkboxVals);
           // Log it to the console
           console.log(firstName, emailAddress);
           // Redirecting the user
