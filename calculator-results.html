@@ -87,7 +87,9 @@
     </div>
     <div class="section">
       <div class="container">
-        <h1 class="heading">{First Name}’s Virta Prediction</h1>
+        <h1 class="heading" id="prediction-heading">
+          {first_name}’s Virta Prediction
+        </h1>
         <p>
           Virta is proven to reduce blood sugar, weight, A1c, and diabetes
           medications. Using your information, we’ve estimated your expected
@@ -101,7 +103,7 @@
         <h3 class="heading-3">From {hba1c}% to {potential-hba1c}%</h3>
         <div>
           On average, Virta members with a similar A1c experienced a
-          [a1c_reduction]% decrease after 90 days. On Virta, your A1c could be
+          {a1c_reduction}% decrease after 90 days. On Virta, your A1c could be
           reduced from {hba1c}% to {potential-hba1c}% in just 90 days.<br />{below-threshold}
         </div>
       </div>
@@ -112,7 +114,7 @@
           On average, Virta members with a similar BMI experienced a
           {weight_reduction_perc}% decrease in weight after 90 days. On Virta,
           you could lose {weight_reduction} lbs, resulting in a new weight of
-          {potentialWeight} lbs after just 90 days.
+          {potential_weight} lbs after just 90 days.
         </div>
       </div>
       <div id="med-reductions" class="w-container">
@@ -165,7 +167,7 @@
       </div>
       <div id="cost-savings" class="w-container">
         <h2 class="heading-2">Cost Savings</h2>
-        <h3 class="heading-3">{cost-savings}*</h3>
+        <h3 class="heading-3">${cost_savings}*</h3>
         <div>
           *Assuming typical medication pricing and cost sharing, a Virta member
           on similar medications could save ${cost_savings} annually on
@@ -195,15 +197,58 @@
         checkBoxNone,
       ] = checkboxVals;
 
+      const replaceTagWithText = (elementId, tag, replacement) => {
+        const element = $(elementId);
+        const textToReplace = element.html();
+        const newText = textToReplace.replaceAll(tag, replacement);
+        element.html(newText);
+      };
+
       // Entering the localStorage value in each input
-      $("#firstName").val(localStorage.getItem("first-name"));
-      $("#emailAddress").val(localStorage.getItem("email-address"));
-      $("#lastName").val(localStorage.getItem("last-name"));
-      $("#weight").val(localStorage.getItem("weight"));
-      $("#feet").val(localStorage.getItem("height-feet"));
-      $("#inches").val(localStorage.getItem("height-inches"));
-      $("#hba1c").val(localStorage.getItem("hba1c"));
-      $("#employer").val(localStorage.getItem("employer"));
+      const firstName = localStorage.getItem("first-name");
+      const emailAddress = $("#emailAddress").val(
+        localStorage.getItem("email-address")
+      );
+      const lastName = localStorage.getItem("last-name");
+      const weight = localStorage.getItem("weight");
+      const feet = localStorage.getItem("height-feet");
+      const inches = localStorage.getItem("height-inches");
+      const hba1c = localStorage.getItem("hba1c");
+      const employer = localStorage.getItem("employer");
+
+      const potentialHba1c = hba1c - 2;
+      const potentialWeight = weight - 20;
+      const weightReductionPercentage = 10;
+      const a1cReduction = 5;
+      const belowThreshold = "";
+      const costSavings = "90";
+
+      replaceTagWithText("#prediction-heading", "{first_name}", firstName);
+      replaceTagWithText("#hba1c-prediction", "{hba1c}", hba1c);
+      replaceTagWithText(
+        "#hba1c-prediction",
+        "{potential-hba1c}",
+        potentialHba1c
+      );
+      replaceTagWithText("#weight-prediction", "{weight}", weight);
+      replaceTagWithText(
+        "#weight-prediction",
+        "{potential-weight}",
+        potentialWeight
+      );
+      replaceTagWithText("#cost-savings", "{cost_savings}", costSavings);
+      replaceTagWithText("#hba1c-prediction", "{a1c_reduction}", a1cReduction);
+      replaceTagWithText(
+        "#weight-prediction",
+        "{weight_reduction_perc}",
+        weightReductionPercentage
+      );
+      replaceTagWithText("#weight-prediction", "{weight_reduction}", 20);
+      replaceTagWithText(
+        "#weight-prediction",
+        "{potential_weight}",
+        potentialWeight
+      );
     </script>
   </body>
 </html>
