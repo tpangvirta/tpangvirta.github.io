@@ -188,13 +188,13 @@
         .split(",")
         .map((val) => val === "true");
       const [
-        checkBoxInsulin,
-        checkBoxSulfonylureas,
-        checkBoxGlp1,
-        checkBoxSglt2,
-        checkBoxDpp4,
-        checkBoxTzd,
-        checkBoxNone,
+        includeInsulin,
+        includeSulfonylurea,
+        includeGlp1,
+        includeSglt2,
+        includeDpp4,
+        includeTzd,
+        includeNone,
       ] = checkboxVals;
 
       const replaceTagWithText = (elementId, tag, replacement) => {
@@ -253,6 +253,40 @@
         return weight_reduction_perc;
       };
 
+      const calculateCostSavings = (
+        includeInsulin,
+        includeSulfonylurea,
+        includeGlp1,
+        includeSglt2,
+        includeDpp4,
+        includeTzd,
+        includeNone
+      ) => {
+        let costSavings = 0;
+        if (includeNone) {
+          return costSavings;
+        }
+        if (includeInsulin) {
+          costSavings += 420;
+        }
+        if (includeSulfonylurea) {
+          costSavings += 71;
+        }
+        if (includeGlp1) {
+          costSavings += 2206;
+        }
+        if (includeSglt2) {
+          costSavings += 1493;
+        }
+        if (includeDpp4) {
+          costSavings += 1375;
+        }
+        if (includeTzd) {
+          costSavings += 136;
+        }
+        return costSavings;
+      };
+
       // Entering the localStorage value in each input
       const firstName = localStorage.getItem("first-name");
       const emailAddress = $("#emailAddress").val(
@@ -279,7 +313,7 @@
       const a1cReduction = calculateA1cReduction(hba1c);
       const potentialHba1c = roundToTenths(hba1c - a1cReduction);
       const belowThreshold = "";
-      const costSavings = "90";
+      const costSavings = calculateCostSavings(...checkboxVals);
 
       replaceTagWithText("#prediction-heading", "{first_name}", firstName);
       replaceTagWithText("#hba1c-prediction", "{hba1c}", hba1c);
