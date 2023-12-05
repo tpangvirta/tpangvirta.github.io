@@ -104,24 +104,31 @@ const checkboxVals = localStorage
   const calculateWeightReduction = (
     weight,
     heightFeet,
-    heightInches,
-    a1c
+    heightInches
   ) => {
     const bmi = calculateBmi(weight, heightFeet, heightInches);
-    if (bmi > 34.9) {
+    if (bmi > 39.9) {
+      // Obesity Extreme
+      weight_reduction_perc = 0.063;
+    } else if (bmi > 34.9) {
+      // Obesity Class 2
       weight_reduction_perc = 0.062;
-    } else if (bmi > 29.9 && a1c <= 34.9) {
+    } else if (bmi > 29.9) {
+      // Obesity Class 1
       weight_reduction_perc = 0.058;
-    } else if (bmi > 24.9 && a1c <= 29.9) {
+    } else if (bmi > 24.9) {
+      // Overweight
       weight_reduction_perc = 0.049;
-    } else if (bmi > 18.4 && a1c <= 24.9) {
-      weight_reduction_perc = 0.029;
+    } else if (bmi > 18.4) {
+      // Normal
+      weight_reduction_perc = 0.031;
     } else {
+      // Underweight
       weight_reduction_perc = 0.0; /* Let’s not populate animation */
     }
     return weight_reduction_perc;
   };
-  
+
   // Hide or show divs based on BMI value
   const determineBmiRange = (
     weight,
@@ -258,8 +265,7 @@ const checkboxVals = localStorage
   const weightReductionProportion = calculateWeightReduction(
     weight,
     feet,
-    inches,
-    hba1c
+    inches
   );
   
   const weightReductionPercentage = roundToTenths(
